@@ -1,41 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
-import LoginForm from '../components/LoginForm.jsx';
-import Home from '../components/Home.jsx';
+import TicketList from '../components/TicketList.jsx';
 import {Typography,
     Grid,
-    List,
-    ListItem,
-    ListItemIcon,
-    ListItemText } from '@ellucian/react-design-system/core';
+    List} from '@ellucian/react-design-system/core';
 import { withStyles } from '@ellucian/react-design-system/core/styles';
+import { useData } from '@ellucian/experience-extension/extension-utilities';
 import { spacing40 } from '@ellucian/react-design-system/core/styles/tokens';
-
-axios.defaults.baseURL = 'https://its.jitbit.com/helpdesk/api';
-axios.defaults.timeout = 1000;
-axios.defaults.headers = {"Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEwOTc2NjI5LCJhZGQiOiI2MjU4M0UxODA2QTg1RTAxOEZCQTY4RUQyQzIwQThCRDkyRjgyOUY1NDAyNURBOTQ3NDQ3MkFFMDBBRUNGRUU3In0.DjxtTY3oSUymGF3OkdoDeFJT48q4DEfc_EYiZa7Ks2A"}
-
-//const [tickets, setTickets] = useState([]);
-
-axios('/Tickets')
-    .then(response => {
-        console.log(response.data);
-        setTickets(response.data);
-    })
-    .catch(error => console.log(error));
-
-const TicketList = tickets.map((ticket) => {
-    return (
-        <List key={ticket.TicketID}>
-            <ListItem>
-                <ListItemText
-                    primary={ticket.Subject}
-                    secondary={ticket.IssueDate}/> 
-            </ListItem>
-        </List>
-    );
-});
 
 const styles = () => ({
     card: {
@@ -46,16 +17,34 @@ const styles = () => ({
     }
 });
 
+/* lOne137Os7z8yFc=%K3Mw4qLc3m]j@C}TiQd#v%6
 
+async function invokeCustomApi(payload) {
+    const jwt = await props.data.getExtensionJwt();
+    const response = await fetch(CUSTOM_API_URL, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + jwt
+        },
+        body: JSON.stringify(payload)
+    });
+};
+*/
 const JitbitCard = (props) => {
     const { classes } = props;
+    console.log(useData())
+
     return (
         <div className={classes.card}>
             <Grid container direction="column" justifyContent="center" alignItems="center" >
                 <Typography variant="caption">
                     <p>Ticketing System</p>
                 </Typography>
-                <TicketList />
+                <List>
+                    <TicketList />
+                </List>
             </Grid>
         </div>
     );
@@ -64,5 +53,4 @@ const JitbitCard = (props) => {
 JitbitCard.propTypes = {
     classes: PropTypes.object.isRequired
 };
-
 export default withStyles(styles)(JitbitCard);
