@@ -17,9 +17,7 @@ const styles = () => ({
     }
 });
 
-/* lOne137Os7z8yFc=%K3Mw4qLc3m]j@C}TiQd#v%6
-
-async function invokeCustomApi(payload) {
+/* async function invokeCustomApi(payload) {
     const jwt = await props.data.getExtensionJwt();
     const response = await fetch(CUSTOM_API_URL, {
         method: 'POST',
@@ -32,6 +30,7 @@ async function invokeCustomApi(payload) {
     });
 };
 */
+
 const JitbitCard = (props) => {
     const { classes } = props;
     console.log(useData())
