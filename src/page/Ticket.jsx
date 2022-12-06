@@ -8,7 +8,7 @@ import { withStyles } from '@ellucian/react-design-system/core/styles';
 
 axios.defaults.baseURL = 'https://its.jitbit.com/helpdesk/api';
 axios.defaults.timeout = 1000;
-axios.defaults.headers = {"Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEwOTc2NjI5LCJhZGQiOiI2MjU4M0UxODA2QTg1RTAxOEZCQTY4RUQyQzIwQThCRDkyRjgyOUY1NDAyNURBOTQ3NDQ3MkFFMDBBRUNGRUU3In0.DjxtTY3oSUymGF3OkdoDeFJT48q4DEfc_EYiZa7Ks2A"}
+axios.defaults.headers = {"Authorization":"Bearer "}
 
 
 function Ticket(props){

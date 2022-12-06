@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import moment from 'moment';
 import axios from 'axios';
+import moment from 'moment';
 import { withStyles } from '@ellucian/react-design-system/core/styles';
 import { Icon } from '@ellucian/ds-icons/lib';
 import {
@@ -19,20 +19,18 @@ const styles = theme => ({
         minWidth: theme.spacing(50)
         }
 });
-
 axios.defaults.baseURL = 'https://its.jitbit.com/helpdesk/api';
-axios.defaults.timeout = 1000;
-axios.defaults.headers = {"Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEwOTc2NjI5LCJhZGQiOiI2MjU4M0UxODA2QTg1RTAxOEZCQTY4RUQyQzIwQThCRDkyRjgyOUY1NDAyNURBOTQ3NDQ3MkFFMDBBRUNGRUU3In0.DjxtTY3oSUymGF3OkdoDeFJT48q4DEfc_EYiZa7Ks2A"}
+
 function TicketList() {
     const [tickets, setTickets] = useState([]);
-    useEffect( () => {
+
+    /* useEffect( () => {
         axios('/Tickets?mode=unclosed')
             .then(response => {
-                console.log(response.data);
                 setTickets(response.data);
             })
             .catch(error => console.log(error));
-        }, [] );
+        }, [] ); */
 
     const itemList = tickets.map( (ticket) =>
         <ListItem button component="a" href={"https://its.jitbit.com/helpdesk/Ticket/" + ticket.IssueID} key={ticket.IssueID}>
