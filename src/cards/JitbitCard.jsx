@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TicketList from '../components/TicketList.jsx';
+import SignIn from '../components/SignIn.jsx';
 import {Typography,
     Grid,
     List} from '@ellucian/react-design-system/core';
 import { withStyles } from '@ellucian/react-design-system/core/styles';
-import { useData } from '@ellucian/experience-extension/extension-utilities';
 import { spacing40 } from '@ellucian/react-design-system/core/styles/tokens';
 
 const styles = () => ({
@@ -17,29 +17,15 @@ const styles = () => ({
     }
 });
 
-/* async function invokeCustomApi(payload) {
-    const jwt = await props.data.getExtensionJwt();
-    const response = await fetch(CUSTOM_API_URL, {
-        method: 'POST',
-        credentials: 'include',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + jwt
-        },
-        body: JSON.stringify(payload)
-    });
-};
-*/
-
 const JitbitCard = (props) => {
     const { classes } = props;
-    console.log(useData())
-
+    const [auth, setAuth] = React.useState(false);
     return (
         <div className={classes.card}>
+            <SignIn></SignIn>
             <Grid container direction="column" justifyContent="center" alignItems="center" >
                 <Typography variant="caption">
-                    <p>Ticketing System</p>
+                    <p>TEST System</p>
                 </Typography>
                 <List>
                     <TicketList />
