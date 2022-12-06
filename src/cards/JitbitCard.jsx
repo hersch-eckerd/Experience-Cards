@@ -22,15 +22,17 @@ const JitbitCard = (props) => {
     const [auth, setAuth] = React.useState(false);
     return (
         <div className={classes.card}>
-            <SignIn></SignIn>
-            <Grid container direction="column" justifyContent="center" alignItems="center" >
-                <Typography variant="caption">
-                    <p>TEST System</p>
-                </Typography>
-                <List>
-                    <TicketList />
-                </List>
-            </Grid>
+            <SignIn ></SignIn>
+            {auth &&
+                <Grid container direction="column" justifyContent="center" alignItems="center" >
+                    <Typography variant="caption">
+                        <p>TEST System</p>
+                    </Typography>
+                    <List>
+                        <TicketList />
+                    </List>
+                </Grid>
+            }
         </div>
     );
 };

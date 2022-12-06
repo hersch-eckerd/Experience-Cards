@@ -9,7 +9,7 @@ function SignInForm () {
     const handleSubmit = (event) => {
         event.preventDefault();
         axios.defaults.headers = {"Authorization":`Bearer ${event.target.value}`};
-        const authenticate = axios.post('https://its.jitbit.com/helpdesk/api/Authorization/', {})
+        axios.post('https://its.jitbit.com/helpdesk/api/Authorization/', {})
             .then(response => {
                 if (response.status == 200) {
                         console.log(response)
